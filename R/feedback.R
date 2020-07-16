@@ -43,6 +43,8 @@ feedback_validated <- function(feedback) {
 
 # return feedback as html
 feedback_as_html <- function(feedback) {
+  if (is.null(feedback))
+    return(feedback)
 
   if (is.null(feedback$type) || identical(feedback$type, "auto"))
     feedback$type <- ifelse(feedback$correct, "success", "error")
